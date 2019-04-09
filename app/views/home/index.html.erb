@@ -1,0 +1,34 @@
+<h1>해커톤 연습용</h1>
+
+<% @posts.each do |post| %>
+    제목 : <%= link_to "#{post.title}", home_path(post) %>
+    <%= link_to "삭제", home_path(post), method: :delete %>
+    <%= link_to "수정", edit_home_path(post) %><br>
+<% end %>
+
+
+<%= link_to '새글쓰기', new_home_path %>
+
+
+<!--git branch 
+git checkout hello -- 이동
+git -b hello
+git checkout -b hello
+git merge hello -- pull하고 비교
+git add .
+git commit -m "HI"
+git push -u origin master
+git pull origin master
+git log --online -->
+
+
+<!--Gemfile 들어가서 ’rails_db’ 입력
+bash 창에 'bundle install' 입력 및 설치 
+주소창 ~/rails/db 입력하면 데이터베이스 -->
+
+
+<!-- bundle install
+rails g devise:install
+rails g devise User
+rails g scaffold Post
+rake db:migrate  -->

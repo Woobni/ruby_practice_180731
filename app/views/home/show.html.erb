@@ -1,0 +1,31 @@
+<h1><%=@post.id%>번 post입니다.</h1>
+
+<h2>제목: <%=@post.title%> </h2>
+
+<p>내용: <%=@post.content%> </p><br>
+
+댓글<br>
+
+<%= form_for([@post, @post.comments.new],url: home_comments_path(@post.id)) do |f| %>
+    <%= f.text_field :body %>
+    <%= f.submit "작성" %><br><br>
+<% end %>
+
+
+
+<% @comments.each do |cc| %>
+    <%= cc.body%>
+    <%= link_to "댓글삭제", home_comment_path(@post, cc), method: :DELETE %>
+    <hr>
+<% end %>
+
+<!--% Comment.where(post_id: @post.id).each do |comment| %-->
+<!--where 은 find 와는 다르게 조건에 맞는 여러개의
+값을 찾아낸다-->
+
+
+<%= link_to home_index_path do %>
+    <button>홈으로</button>
+<% end %>
+
+<!--<a href="/home/%=@post.id%>" data-confirm="진짜로 삭제하시겠습니까" data-method="DELETE">삭제</a>-->
